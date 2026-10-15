@@ -84,17 +84,17 @@ sequenceDiagram
 ### 1. Hierarchical Dynamic Subagent Delegation
 * **Supervisor-Worker Topology:** Decomposes complex directives into Directed Acyclic Graphs (DAGs) and dynamically spins up specialized runtime workers.
 * **Self-Modifying Code Validation:** Generated code passes through multi-layer validation gates, static analysis checks, and AST parsing before execution inside isolated Docker containers.
-* **See:** [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
+* **See:** [`docs/01-system-architecture.md`](docs/01-system-architecture.md) and [`examples/agent_orchestrator.py`](examples/agent_orchestrator.py)
 
 ### 2. Proactive Telemetry & Heartbeat Loops
 * **Continuous Liveness Monitoring:** Built with TypeScript and WebSocket event-driven telemetry to monitor agent workspace activity, detect execution stalls or developer fatigue, and dispatch proactive background tasks.
 * **Distributed Synchronization:** Scaled visual and state execution pipelines to **600+ active nodes** using custom asynchronous queue brokers to prevent memory exhaustion and execution drift.
-* **See:** [`docs/TELEMETRY_PROTOCOL.md`](docs/TELEMETRY_PROTOCOL.md) and [`src/types/telemetry.ts`](src/types/telemetry.ts)
+* **See:** [`docs/03-heartbeat-telemetry.md`](docs/03-heartbeat-telemetry.md) and [`examples/telemetry_heartbeat.ts`](examples/telemetry_heartbeat.ts)
 
 ### 3. JARVIS-Sentinel (Deterministic Rollback Engine)
 * Maps transactional microservice interactions into dynamic execution graphs.
 * Intercepts identity drift, session token escalation, and hallucination loops with **sub-second microservice state rollbacks** before corrupted data cascades to downstream systems.
-* **See:** [`docs/ROLLBACK_ENGINE.md`](docs/ROLLBACK_ENGINE.md) and [`src/sentinel/rollback_engine.py`](src/sentinel/rollback_engine.py)
+* **See:** [`docs/02-rollback-safety-engine.md`](docs/02-rollback-safety-engine.md) and [`examples/state_rollback_engine.py`](examples/state_rollback_engine.py)
 
 ---
 
@@ -117,19 +117,16 @@ Engineering post-mortems and architectural breakdowns authored on **DEV Communit
 
 ```
 .
-├── README.md                  # System overview and architectural diagrams
-├── LICENSE                    # MIT License
+├── README.md                      # System overview and architectural diagrams
+├── LICENSE                        # MIT License
 ├── docs/
-│   ├── ARCHITECTURE.md        # Technical specification of Supervisor-Worker DAG orchestration
-│   ├── ROLLBACK_ENGINE.md     # Algorithmic design of Sentinel deterministic rollback boundaries
-│   └── TELEMETRY_PROTOCOL.md  # Specification for proactive heartbeat loops & event telemetry
-└── src/
-    ├── types/
-    │   └── telemetry.ts       # TypeScript interfaces for workspace liveness & event telemetry
-    ├── orchestration/
-    │   └── supervisor.py      # Abstract interfaces for DAG planning & AST validation gates
-    └── sentinel/
-        └── rollback_engine.py # Reference implementation of graph transaction rollback triggers
+│   ├── 01-system-architecture.md  # Specification of Supervisor-Worker DAG orchestration
+│   ├── 02-rollback-safety-engine.md # Algorithmic design of Sentinel deterministic rollbacks
+│   └── 03-heartbeat-telemetry.md  # Specification for proactive heartbeat loops & telemetry
+└── examples/
+    ├── agent_orchestrator.py      # Reference abstraction for DAG planning & AST validation
+    ├── state_rollback_engine.py   # Reference implementation of graph transaction rollbacks
+    └── telemetry_heartbeat.ts     # TypeScript interfaces for workspace liveness & telemetry
 ```
 
 ---
