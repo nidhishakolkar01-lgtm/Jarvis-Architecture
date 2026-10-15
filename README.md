@@ -4,7 +4,7 @@
 [![Status](https://img.shields.io/badge/Status-Research%20%26%20Active%20Prototype-blue.svg)](#)
 [![Stack](https://img.shields.io/badge/Stack-Python%20%7C%20TypeScript%20%7C%20Docker%20%7C%20GCP-orange.svg)](#)
 [![Publications](https://img.shields.io/badge/Publications-DEV.to%20%26%20Medium-black.svg)](https://dev.to/nidhishakolkar)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License: Proprietary](https://img.shields.io/badge/License-Proprietary%20%7C%20All%20Rights%20Reserved-red.svg)](LICENSE)
 
 ---
 
@@ -160,7 +160,7 @@ Engineering post-mortems and architectural breakdowns authored on **DEV Communit
 ```
 .
 ├── README.md                      # Comprehensive systems overview, benchmarks & execution trace
-├── LICENSE                        # MIT License
+├── LICENSE                        # Proprietary / All Rights Reserved Notice
 ├── docs/
 │   ├── 01-system-architecture.md  # Numbered guide: Supervisor-Worker DAG orchestration
 │   ├── 02-rollback-safety-engine.md # Numbered guide: Sentinel deterministic rollbacks
